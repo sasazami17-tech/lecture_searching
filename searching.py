@@ -31,8 +31,8 @@ def read_data(file_name, field):
 
 
 def main():
-    sequential_data = read_data("sequential.json", "unordered_numbers")
-    print(sequential_data)
+    nove_data = read_data("sequential.json", "unordered_numbers")
+    print(nove_data)
 
 
 if __name__ == "__main__":
