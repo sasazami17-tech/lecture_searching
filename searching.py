@@ -3,6 +3,13 @@ import json
 
 
 def read_data(file_name, field):
+    with open(file_name, "r") as file:
+        data = json.load(file)
+        if field not in data:
+            return None
+        return data[field]
+    return None
+
     """
     Reads a JSON file and returns data for a given field.
 
@@ -24,7 +31,8 @@ def read_data(file_name, field):
 
 
 def main():
-    pass
+    sequential_data = read_data("sequential.json", "unordered_numbers")
+    print(sequential_data)
 
 
 if __name__ == "__main__":
