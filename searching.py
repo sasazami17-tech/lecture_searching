@@ -30,10 +30,26 @@ def read_data(file_name, field):
     file_path = cwd_path / file_name
 
 
+
 def main():
     nove_data = read_data("sequential.json", "unordered_numbers")
     print(nove_data)
 
+def linear_search(sekvencia, hladane_heslo):
+    miesto = []
+
+    for i in range(len(sekvencia)):
+        if sekvencia[i] == hladane_heslo:
+            miesto.append(i)
+
+    return {"positions": miesto, "count": len(miesto)}
+
+def main():
+    data = read_data("sequential.json", "unordered_numbers")
+    miesto = 5
+
+    vysledok = linear_search(data, miesto)
+    print(vysledok)
 
 if __name__ == "__main__":
     main()
