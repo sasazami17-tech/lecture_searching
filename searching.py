@@ -142,7 +142,7 @@ def measure_time(f, data, hladane_cislo, opakuj=10):
 
 
 def main():
-    velkosti = [100, 500, 1000, 5000, 10000]
+    velkosti = [100, 700, 1000, 7000, 18500]
 
     sequential_times = []
     binary_times = []
@@ -185,3 +185,35 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+def pattern_search(sekvencia, vzor):
+    miesta = set()
+
+    sek_pocet = len(sekvencia)
+    v_pocet = len(vzor)
+
+    for i in range(sek_pocet - v_pocet + 1):
+        if sekvencia[i:i + v_pocet] == vzor:
+            miesta.add(i)
+
+    return miesta
+
+
+import json
+from searching import pattern_search
+
+
+def main():
+
+    with open("sequential.json", "r") as file:
+        data = json.load(file)
+
+    dna_sekvencia = data["dna_sequence"]
+
+    vzor = "ATA"
+    vysledok = pattern_search(dna_sekvencia, vzor)
+    print(f"Vzor '{vzor}' je na: {vysledok}")
+
+
+if __name__ == "__main__":
+    main()
